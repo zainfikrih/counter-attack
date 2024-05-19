@@ -2,7 +2,8 @@
 
 ### Query
 
-- token: token bot telegramchatId: chat id bot telegram
+- token: token bot telegram
+- chatId: chat id bot telegram
 - bacotan: bacotanmu
 - limit: banyak bacotanmu (default: 50)
 
