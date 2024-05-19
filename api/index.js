@@ -2,13 +2,15 @@ const { default: axios } = require("axios");
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => res.send("Counterattack to Telegram Bot"));
-
-app.get("/counterattack", (req, res) => {
+app.get("/", (req, res) => {
     let token = req.query.token
     let chatId = req.query.chatId
     let message = req.query.bacotan
-    let limit = req.query.limit ?? 10
+    let limit = req.query.limit ?? 50
+
+    if (!token || !chatId || !message) {
+        return res.send("Counterattack to Telegram Bot\n\nQuery\ntoken: token bot telegram\nchatId: chat id bot telegram\nbacotan: bacotanmu\nlimit: banyak bacotanmu (default: 50)\n\nExample request: https://counterattack.vercel.app/counterattack?token=7182200110:AAFHsca6yqtpxU3RKSGl78AgJBjX1lzbCog&chatId=6343087886&bacotan=Tobat...")
+    }
 
     let success = [];
     let error = [];
@@ -21,12 +23,14 @@ app.get("/counterattack", (req, res) => {
         )
     }
 
+    let result = {}
     Promise.all(promises).then(() => {
         console.log(`Success: ${success}`)
         console.log(`Error: ${error}`)
-        res.json({ success: success.length, error: error.length, data: success })
+        result = res.json({ success: success.length, error: error.length, data: success })
     });
 
+    return result
 });
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
