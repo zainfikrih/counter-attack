@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
         chatId: chat id bot telegram<br/>
         bacotan: bacotanmu<br/>limit: banyak bacotanmu (default: 50)
         <h4>Example request</h4>
-        "https://counterattack.vercel.app/counterattack?token=7182200110:AAFHsca6yqtpxU3RKSGl78AgJBjX1lzbCog&chatId=6343087886&bacotan=Tobat..."<br/><br/>
+        "https://counterattack.vercel.app?token=7182200110:AAFHsca6yqtpxU3RKSGl78AgJBjX1lzbCog&chatId=6343087886&bacotan=Tobat..."<br/><br/>
         <button onclick="window.open('https://github.com/zainfikrih/counter-attack','_blank');" type="button">
          🪣 View Source</button>`)
     }
