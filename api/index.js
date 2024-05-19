@@ -9,7 +9,16 @@ app.get("/", (req, res) => {
     let limit = req.query.limit ?? 50
 
     if (!token || !chatId || !message) {
-        return res.send("Counterattack to Telegram Bot\n\nQuery\ntoken: token bot telegram\nchatId: chat id bot telegram\nbacotan: bacotanmu\nlimit: banyak bacotanmu (default: 50)\n\nExample request: https://counterattack.vercel.app/counterattack?token=7182200110:AAFHsca6yqtpxU3RKSGl78AgJBjX1lzbCog&chatId=6343087886&bacotan=Tobat...")
+        return res.send(`
+        <h3>Counterattack to Telegram Bot</h3>
+        <h4>Query</h4>
+        token: token bot telegram<br/>
+        chatId: chat id bot telegram<br/>
+        bacotan: bacotanmu<br/>limit: banyak bacotanmu (default: 50)
+        <h4>Example request</h4>
+        "https://counterattack.vercel.app/counterattack?token=7182200110:AAFHsca6yqtpxU3RKSGl78AgJBjX1lzbCog&chatId=6343087886&bacotan=Tobat..."<br/><br/>
+        <button onclick="window.open('https://github.com/zainfikrih/counter-attack','_blank');" type="button">
+         🪣 View Source</button>`)
     }
 
     let success = [];
